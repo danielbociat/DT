@@ -29,6 +29,27 @@ STATE_MACHINE_RETURN_VALUE at_command_parser(uint8_t current_character){
             break;
 
         case 3:
+            if(current_character == 'K')
+                state = 4;
+            else
+                return STATE_MACHINE_READY_WITH_ERROR;
+            break;
+
+        case 4:
+            if(current_character == '\r')
+                state = 5;
+            else
+                return STATE_MACHINE_READY_WITH_ERROR;
+            break;
+
+        case 5:
+            if(current_character == '\n'){
+                state = 6;
+                return STATE_MACHINE_READY_OK;
+            }
+            else
+                return STATE_MACHINE_READY_WITH_ERROR;
+            break;
 
     }
 
