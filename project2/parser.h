@@ -22,7 +22,7 @@ typedef enum{
 
 STATE_MACHINE_RETURN_VALUE at_command_parser(uint8_t current_character);
 
-void at_command_print(AT_COMMAND_DATA at_data);
+void at_command_print();
 
 void at_command_reset();
 
