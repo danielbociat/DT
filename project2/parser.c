@@ -151,3 +151,19 @@ STATE_MACHINE_RETURN_VALUE at_command_parser(uint8_t current_character){
 
     return STATE_MACHINE_NOT_READY;
 }
+
+void at_command_print(AT_COMMAND_DATA mydata){
+    for(int i = 0; i < mydata.line_count; ++i){
+        printf("%s", mydata.data[i]);
+    }
+
+    if(mydata.ok == 1)
+        printf("Status: OK\n");
+    else
+        printf("Status: ERROR\n");
+}
+
+void at_command_reset(){
+    memset(mydata.data, 0, sizeof(mydata));
+    mydata.ok = 2;
+}
