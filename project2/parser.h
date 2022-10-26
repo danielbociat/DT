@@ -12,6 +12,8 @@ typedef struct {
     uint32_t line_count;
 }AT_COMMAND_DATA;
 
+extern AT_COMMAND_DATA mydata;
+
 typedef enum{
     STATE_MACHINE_NOT_READY,
     STATE_MACHINE_READY_OK,
@@ -21,5 +23,7 @@ typedef enum{
 STATE_MACHINE_RETURN_VALUE at_command_parser(uint8_t current_character);
 
 void at_command_print(AT_COMMAND_DATA at_data);
+
+void at_command_reset();
 
 #endif // __PARSER_AT__
