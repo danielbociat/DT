@@ -9,6 +9,7 @@ STATE_MACHINE_RETURN_VALUE at_command_parser(uint8_t current_character, uint8_t 
     static uint8_t curr_col = 0;
     switch(state){
         case 0:
+						at_command_reset();
             mydata.line_count = 0;
             if(current_character == '\r')
                 state = 1;
